@@ -1,27 +1,30 @@
-import { View, Text, StyleSheet, Button, Image } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import React from 'react';
 
 const Index = () => {
   return (
     <View style={styles.container}>
       <View style={styles.post}>
-        <View style={styles.image}>
-          <Image source={require("../../assets/images/react-logo.png")}/>
+        <View style={styles.imageContainer}>
+          <Image
+            source={require("../../assets/images/react-logo.png")}
+            style={styles.image}
+          />
         </View>
         <View style={styles.postText}>
-          <Text>index</Text>
+          <Text style={styles.postTitle}>Post Title</Text>
+          <Text style={styles.postContent}>This is the content of the post...</Text>
         </View>
       </View>
 
       <View style={styles.postNav}>
         <View style={styles.navbarBtn}>
-          <Button color="#8174A0" title='<'/>
+          <Button color="#8174A0" title='Previous' />
         </View>
         <View style={styles.navbarBtn}>
-          <Button color="#8174A0" title='>'/>
+          <Button color="#8174A0" title='Next' />
         </View>
       </View>
-
     </View>
   );
 };
@@ -29,30 +32,50 @@ const Index = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: "#A888B5",
+    backgroundColor: "#f5f5f5",
+    padding: 16,
+    justifyContent: 'space-evenly'
   },
   post: {
-    backgroundColor: "#8174A0",
-    flexDirection: 'row',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    flexDirection: 'column',
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  imageContainer: {
     alignItems: 'center',
+    marginBottom: 16,
   },
   image: {
-    padding: 10,
+    width: 100,
+    height: 100,
   },
   postText: {
-    paddingRight: 10,
+    paddingTop: 8,
+  },
+  postTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 8,
+  },
+  postContent: {
+    fontSize: 14,
+    color: '#333',
   },
   postNav: {
-    marginTop: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '70%',
+    width: '100%',
+    marginTop: 20,
   },
   navbarBtn: {
-    width: '50%',
+    width: '48%',
   },
 });
 
